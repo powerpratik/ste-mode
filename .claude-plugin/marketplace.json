@@ -1,0 +1,13 @@
+{
+  "name": "ste-mode",
+  "owner": { "name": "powerpratik" },
+  "description": "A Simplified Technical English writing mode for Claude Code.",
+  "plugins": [
+    {
+      "name": "ste-mode",
+      "source": "./",
+      "description": "Makes Claude write in a Simplified Technical English style. Toggle with /ste.",
+      "category": "productivity"
+    }
+  ]
+}

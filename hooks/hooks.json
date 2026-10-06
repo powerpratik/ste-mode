@@ -1,0 +1,15 @@
+{
+  "description": "Adds the Simplified Technical English writing rules to each new session, unless /ste off was used",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks-handlers/session-start.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}

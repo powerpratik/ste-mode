@@ -1,0 +1,10 @@
+{
+  "name": "ste-mode",
+  "version": "0.1.0",
+  "description": "Makes Claude write in a Simplified Technical English style: short active sentences, plain words, one meaning per word. Toggle with /ste.",
+  "author": { "name": "powerpratik" },
+  "homepage": "https://github.com/powerpratik/ste-mode",
+  "repository": "https://github.com/powerpratik/ste-mode",
+  "license": "MIT",
+  "keywords": ["writing", "style", "simplified-english", "ste", "output-style"]
+}
