@@ -9,6 +9,8 @@ OFF="${HOME}/.claude/ste-mode.off"
 [ -f "$ROOT/rules/ste.md" ] || exit 0
 
 text=$(cat "$ROOT/rules/ste.md")
+# drop carriage returns: a Windows checkout can give the rules CRLF line endings
+text=${text//$'\r'/}
 # escape for a JSON string: backslash, quote, newline, tab
 text=${text//\\/\\\\}
 text=${text//\"/\\\"}

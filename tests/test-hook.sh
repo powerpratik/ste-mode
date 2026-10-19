@@ -28,6 +28,17 @@ want = open(sys.argv[2]).read().rstrip("\n")
 assert got == want, (got[:80], want[:80])
 PY
 
+# CRLF rules (a Windows checkout with core.autocrlf=true): still valid JSON, no \r
+mkdir -p "$TMP/crlf/rules"
+sed 's/$/\r/' "$HERE/rules/ste.md" > "$TMP/crlf/rules/ste.md"
+out=$(HOME="$TMP" CLAUDE_PLUGIN_ROOT="$TMP/crlf" bash "$HANDLER")
+python3 - "$out" "$HERE/rules/ste.md" <<'PY' && check "CRLF rules: valid JSON, same text" ok || check "CRLF rules: valid JSON, same text" no
+import json, sys
+got = json.loads(sys.argv[1])["hookSpecificOutput"]["additionalContext"]
+want = open(sys.argv[2]).read().rstrip("\n")
+assert got == want, (got[:80], want[:80])
+PY
+
 # off: no output, exit 0
 touch "$TMP/.claude/ste-mode.off"
 out=$(HOME="$TMP" CLAUDE_PLUGIN_ROOT="$HERE" bash "$HANDLER"); rc=$?

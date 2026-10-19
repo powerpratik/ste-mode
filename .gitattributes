@@ -1,0 +1,4 @@
+# Keep LF everywhere. With core.autocrlf=true (the Git for Windows default)
+# the rules file got CRLF, and the hook then emitted invalid JSON.
+* text=auto eol=lf
+*.png binary
